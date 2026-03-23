@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Experiences | Off The Couch - Escape Rooms in Fremont",
@@ -29,6 +30,11 @@ export default function ExperiencesPage() {
       ],
       highlights:
         "Atmospheric environment design, deep storytelling, immersive props and puzzles that integrate seamlessly into the narrative.",
+      colorAccent: "purple",
+      bgGradient: "from-purple-600 to-purple-900",
+      textColor: "text-purple-400",
+      difficulty: "Moderate",
+      mood: "Mystery",
     },
     {
       id: "gallery",
@@ -50,6 +56,11 @@ export default function ExperiencesPage() {
       ],
       highlights:
         "Larger environment, collaborative puzzles, narrative callbacks to Chapter 1, multiple paths to progression.",
+      colorAccent: "amber",
+      bgGradient: "from-amber-600 to-amber-900",
+      textColor: "text-amber-400",
+      difficulty: "Challenging",
+      mood: "Intrigue",
     },
     {
       id: "morgue",
@@ -71,198 +82,224 @@ export default function ExperiencesPage() {
       ],
       highlights:
         "Intense atmosphere, high-impact narrative moments, challenging puzzles, immersive horror elements.",
+      colorAccent: "emerald",
+      bgGradient: "from-emerald-600 to-slate-900",
+      textColor: "text-emerald-400",
+      difficulty: "Expert",
+      mood: "Horror",
     },
   ];
 
   return (
     <>
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-white mb-6">The Asheville Mystery</h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            A noir-inspired mystery unfolds across twelve connected chapters.
-            Begin your investigation with the first three chapters now
-            available.
-          </p>
+      <section className="relative py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
+        {/* Background gradient accent */}
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/20 to-purple-900/20 opacity-50" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <AnimatedSection className="max-w-3xl mx-auto">
+            <h1 className="text-white mb-6">The Asheville Mystery</h1>
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              A noir-inspired mystery unfolds across twelve connected chapters.
+              Begin your investigation with the first three chapters now
+              available.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Chapters */}
-      <section className="section-padding">
-        <div className="section-container">
-          <div className="space-y-12">
+      {/* Timeline Header */}
+      <section className="section-padding bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="section-container max-w-4xl mx-auto">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-white mb-4">Your Investigation Path</h2>
+            <p className="text-slate-400 text-lg">
+              Progress through three interconnected chapters, each building on the last
+            </p>
+          </AnimatedSection>
+
+          {/* Timeline visualization */}
+          <div className="hidden md:flex items-center justify-between mb-16">
             {chapters.map((chapter, idx) => (
-              <div
-                key={chapter.id}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
-              >
-                {/* Content */}
-                <div className={idx % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="mb-6">
-                    <span className="inline-block text-xs font-semibold text-teal-400 uppercase tracking-wider">
-                      {chapter.chapter}
-                    </span>
-                    <h2 className="text-3xl font-bold text-white mt-3">
-                      {chapter.title}
-                    </h2>
+              <div key={chapter.id} className="flex-1">
+                <AnimatedSection delay={idx * 0.15} className="flex flex-col items-center">
+                  {/* Chapter marker */}
+                  <div
+                    className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-white mb-4 border-2 ${
+                      idx === 0
+                        ? "bg-purple-600/40 border-purple-400"
+                        : idx === 1
+                          ? "bg-amber-600/40 border-amber-400"
+                          : "bg-emerald-600/40 border-emerald-400"
+                    }`}
+                  >
+                    Ch {idx + 1}
                   </div>
 
-                  <p className="text-lg text-slate-300 mb-4">
-                    {chapter.description}
-                  </p>
-
-                  <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 mb-6">
-                    <p className="text-slate-300 mb-4">{chapter.story}</p>
-                  </div>
-
-                  <div className="mb-8">
-                    <h4 className="font-semibold text-white mb-3">
-                      Chapter Features:
-                    </h4>
-                    <ul className="space-y-2">
-                      {chapter.features.map((feature, i) => (
-                        <li
-                          key={i}
-                          className="flex gap-3 text-slate-300 text-sm"
-                        >
-                          <span className="text-teal-400 flex-shrink-0">✓</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-lg p-6 mb-8 border border-slate-700">
-                    <p className="text-slate-400 text-sm mb-1">Experience</p>
-                    <p className="text-white font-semibold mb-4">
-                      {chapter.highlights}
-                    </p>
-                    <div className="grid grid-cols-3 gap-4 text-sm">
-                      <div>
-                        <p className="text-slate-400">Players</p>
-                        <p className="text-teal-400 font-semibold">
-                          {chapter.players}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-slate-400">Duration</p>
-                        <p className="text-teal-400 font-semibold">
-                          {chapter.duration}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-slate-400">Pricing</p>
-                        <p className="text-teal-400 font-semibold">
-                          {chapter.price}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link
-                      href={`/experiences/${chapter.id}`}
-                      className="btn btn-primary"
-                    >
-                      Learn More
-                    </Link>
-                    <a
-                      href="https://offthecouch.io/book/otc"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-secondary"
-                    >
-                      Book Chapter
-                    </a>
-                  </div>
-                </div>
-
-                {/* Visual Element */}
-                <div className={idx % 2 === 1 ? "lg:order-1" : ""}>
-                  <div className="card h-full min-h-[400px] flex items-center justify-center overflow-hidden relative">
-                    {/* Atmospheric gradient background */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${
-                        idx === 0
-                          ? "from-purple-900/40 to-blue-900/40"
-                          : idx === 1
-                            ? "from-amber-900/40 to-red-900/40"
-                            : "from-slate-800/40 to-gray-900/40"
-                      }`}
-                    />
-
-                    {/* Decorative elements */}
-                    <div className="relative z-10 text-center">
-                      <div
-                        className={`text-8xl mb-4 ${
-                          idx === 0
-                            ? "text-purple-400"
-                            : idx === 1
-                              ? "text-amber-400"
-                              : "text-slate-400"
-                        }`}
-                      >
-                        {idx === 0 ? "🔍" : idx === 1 ? "🖼️" : "💀"}
-                      </div>
-                      <h3 className="text-2xl font-bold text-white mb-4">
-                        {chapter.title}
-                      </h3>
-                      <p className="text-slate-400">Chapter {idx + 1}</p>
-                    </div>
-                  </div>
-                </div>
+                  {/* Connection line */}
+                  {idx < chapters.length - 1 && (
+                    <div className="absolute left-1/2 top-8 w-full h-1 bg-gradient-to-r from-slate-700 to-slate-600 transform -translate-x-1/2" />
+                  )}
+                </AnimatedSection>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Asheville Overview */}
+      {/* Chapters Grid */}
+      <section className="section-padding">
+        <div className="section-container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {chapters.map((chapter, idx) => (
+              <AnimatedSection key={chapter.id} delay={idx * 0.15} animation="scaleIn">
+                <Link href={`/experiences/${chapter.id}`} className="group h-full">
+                  <div className="card h-full flex flex-col overflow-hidden hover:border-teal-400/50 transition-all hover:shadow-lg hover:shadow-teal-900/20">
+                    {/* Header with color accent */}
+                    <div
+                      className={`h-1 w-full bg-gradient-to-r ${chapter.bgGradient}`}
+                    />
+
+                    {/* Content */}
+                    <div className="flex-1 p-6 flex flex-col">
+                      <div className="mb-4">
+                        <span className={`inline-block text-xs font-semibold ${chapter.textColor} uppercase tracking-wider mb-2`}>
+                          {chapter.chapter}
+                        </span>
+                        <h3 className="text-2xl font-bold text-white group-hover:text-teal-400 transition-colors mb-2">
+                          {chapter.title}
+                        </h3>
+                      </div>
+
+                      {/* Difficulty and Mood indicators */}
+                      <div className="flex gap-3 mb-6">
+                        <div className="flex items-center gap-1 text-sm">
+                          <span className="w-2 h-2 rounded-full bg-slate-600" />
+                          <span className="text-slate-400">{chapter.difficulty}</span>
+                        </div>
+                        <div className="flex items-center gap-1 text-sm">
+                          <span className="w-2 h-2 rounded-full bg-slate-600" />
+                          <span className="text-slate-400">{chapter.mood}</span>
+                        </div>
+                      </div>
+
+                      {/* Image placeholder */}
+                      <div
+                        className={`h-40 rounded-lg mb-6 flex items-center justify-center overflow-hidden relative bg-gradient-to-br ${chapter.bgGradient} opacity-20`}
+                      >
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                          <span className="text-4xl mb-2">
+                            {idx === 0 ? "🔍" : idx === 1 ? "🖼️" : "💀"}
+                          </span>
+                          <span className="text-xs text-slate-400">Photo Coming Soon</span>
+                        </div>
+                      </div>
+
+                      <p className="text-slate-300 mb-6 flex-1">
+                        {chapter.description}
+                      </p>
+
+                      {/* Details grid */}
+                      <div className="grid grid-cols-3 gap-3 mb-6 pt-4 border-t border-slate-700/50">
+                        <div>
+                          <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">
+                            Players
+                          </p>
+                          <p className={`font-semibold ${chapter.textColor}`}>
+                            {chapter.players}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">
+                            Duration
+                          </p>
+                          <p className={`font-semibold ${chapter.textColor}`}>
+                            {chapter.duration}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">
+                            Price
+                          </p>
+                          <p className={`font-semibold ${chapter.textColor}`}>
+                            {chapter.price}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* CTA */}
+                      <div className="flex gap-3">
+                        <span className="flex-1 btn btn-primary justify-center text-center group-hover:scale-105 transition-transform">
+                          Learn More
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Asheville */}
       <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="section-container max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-white mb-4">About Asheville</h2>
-          </div>
-
-          <div className="card text-center">
-            <p className="text-lg text-slate-300 mb-6">
-              "Asheville brings to life a unique experience where you as the
-              player become the main characters in your own live action game.
-              We removed the time limits to allow you the more realistic
-              experience of investigating the world of Asheville at your own
-              pace. As a player you have the ability to save your progress
-              throughout the game."
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="text-white mb-4">About The Asheville Mystery</h2>
+            <p className="text-slate-400">
+              An innovative approach to immersive storytelling and investigation
             </p>
+          </AnimatedSection>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-700 text-left">
-              <div>
-                <div className="text-3xl font-bold text-teal-400 mb-2">12</div>
-                <p className="text-slate-400 text-sm">Chapters Total</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-teal-400 mb-2">3</div>
-                <p className="text-slate-400 text-sm">Available Now</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-teal-400 mb-2">∞</div>
-                <p className="text-slate-400 text-sm">No Time Limits</p>
+          <AnimatedSection delay={0.1}>
+            <div className="card space-y-8">
+              <p className="text-lg text-slate-300 italic border-l-4 border-teal-400 pl-6">
+                "Asheville brings to life a unique experience where you as the player
+                become the main characters in your own live action game. We removed
+                the time limits to allow you the more realistic experience of
+                investigating the world of Asheville at your own pace. As a player
+                you have the ability to save your progress throughout the game."
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-700">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-teal-400 mb-2">12</div>
+                  <p className="text-slate-400 text-sm uppercase tracking-wide">
+                    Chapters Total
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-teal-400 mb-2">3</div>
+                  <p className="text-slate-400 text-sm uppercase tracking-wide">
+                    Available Now
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-teal-400 mb-2">∞</div>
+                  <p className="text-slate-400 text-sm uppercase tracking-wide">
+                    No Time Limits
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* CTA */}
       <section className="section-padding">
         <div className="section-container max-w-2xl mx-auto text-center">
-          <h2 className="text-white mb-6">Ready to Investigate?</h2>
-          <p className="text-slate-300 mb-8">
-            Choose your starting chapter or contact us for group bookings and
-            corporate events.
-          </p>
+          <AnimatedSection className="mb-8">
+            <h2 className="text-white mb-6">Ready to Investigate?</h2>
+            <p className="text-slate-300 mb-8 text-lg">
+              Choose your starting chapter and begin solving the mystery of
+              William Occam's death today.
+            </p>
+          </AnimatedSection>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <AnimatedSection delay={0.15} className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://offthecouch.io/book/otc"
               target="_blank"
@@ -274,7 +311,7 @@ export default function ExperiencesPage() {
             <Link href="/pricing" className="btn btn-secondary btn-lg">
               View Pricing
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

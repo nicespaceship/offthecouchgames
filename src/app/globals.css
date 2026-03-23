@@ -18,6 +18,60 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -27,6 +81,27 @@ body {
   color: var(--text-light);
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
+  position: relative;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image:
+    repeating-conic-gradient(
+      from 45deg at 0% 0%,
+      #ffffff 0deg 0.0001%,
+      transparent 0.0001deg 45deg
+    );
+  background-size: 50px 50px;
+  opacity: 0.015;
+  z-index: -1;
 }
 
 * {
@@ -81,6 +156,7 @@ a:hover {
   text-decoration: none;
   border: none;
   white-space: nowrap;
+  min-height: 44px;
 }
 
 .btn-primary {
@@ -90,8 +166,12 @@ a:hover {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(26, 138, 110, 0.4);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 138, 110, 0.5);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
 }
 
 .btn-secondary {
@@ -102,6 +182,12 @@ a:hover {
 
 .btn-secondary:hover {
   background: rgba(20, 184, 166, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.2);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
 }
 
 .btn-lg {
@@ -125,9 +211,124 @@ a:hover {
   box-shadow: 0 12px 24px rgba(26, 138, 110, 0.15);
 }
 
+/* Glassmorphism cards */
+.glass {
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass:hover {
+  border-color: rgba(20, 184, 166, 0.4);
+  background: rgba(15, 23, 42, 0.55);
+  box-shadow: 0 12px 40px rgba(20, 184, 166, 0.2);
+  transform: translateY(-4px);
+}
+
+/* Scroll-triggered animations */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-on-scroll.fadeInLeft {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.animate-on-scroll.fadeInRight {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+.animate-on-scroll.scaleIn {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+}
+
+/* Animation delay utilities */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Glow utilities */
+.glow-teal {
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+}
+
+.glow-teal-lg {
+  box-shadow: 0 0 40px rgba(20, 184, 166, 0.5);
+}
+
+/* Shimmer loading animation */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 184, 166, 0.1) 0%,
+    rgba(20, 184, 166, 0.2) 50%,
+    rgba(20, 184, 166, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Line decorations */
+.line-decoration {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.line-decoration::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent-teal) 50%, transparent 100%);
+  border-radius: 2px;
+}
+
+/* Text utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
 /* Sections */
 .section-padding {
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 4rem 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -146,6 +347,12 @@ a:hover {
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
+}
+
+/* Touch target improvements */
+button, a, [role="button"], input[type="checkbox"], input[type="radio"] {
+  min-height: 44px;
+  min-width: 44px;
 }
 
 /* Gradients */

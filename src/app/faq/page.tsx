@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import type { Metadata } from "next";
 import { useState } from "react";
 import Link from "next/link";
+import AnimatedSection from "@/components/AnimatedSection";
 
-// Metadata won't work in client components, so we'll handle it differently
 export default function FAQPage() {
   const [openItems, setOpenItems] = useState<number[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("General");
 
   const toggleItem = (index: number) => {
     setOpenItems((prev) =>
@@ -160,6 +160,14 @@ export default function FAQPage() {
     },
   ];
 
+  const categories = faqs.map((cat) => cat.category);
+  const currentCategory = faqs.find((cat) => cat.category === selectedCategory);
+  const currentCategoryIndex = categories.indexOf(selectedCategory);
+  const currentItems = currentCategory?.items || [];
+  const globalStartIndex = faqs
+    .slice(0, currentCategoryIndex)
+    .reduce((sum, cat) => sum + cat.items.length, 0);
+
   return (
     <>
       <head>
@@ -171,118 +179,159 @@ export default function FAQPage() {
       </head>
 
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-white mb-6">Frequently Asked Questions</h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Can't find the answer you're looking for? Reach out to us directly.
-          </p>
+          <AnimatedSection>
+            <h1 className="text-white mb-6 text-4xl md:text-5xl">Frequently Asked Questions</h1>
+            <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
+              Can't find the answer you're looking for? Reach out to us directly.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Category Pills */}
+      <section className="section-padding bg-slate-950">
+        <div className="section-container">
+          <AnimatedSection>
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                    selectedCategory === cat
+                      ? 'bg-teal-500 text-white shadow-lg shadow-teal-500/30'
+                      : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* FAQs */}
       <section className="section-padding">
         <div className="section-container max-w-3xl mx-auto">
-          <div className="space-y-8">
-            {faqs.map((category, catIdx) => (
-              <div key={catIdx}>
-                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                  <span className="w-1 h-8 bg-teal-500 rounded" />
-                  {category.category}
-                </h2>
+          <AnimatedSection>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-3">
+              <span className="w-1 h-8 bg-teal-500 rounded" />
+              {selectedCategory}
+            </h2>
+          </AnimatedSection>
 
-                <div className="space-y-3">
-                  {category.items.map((item, itemIdx) => {
-                    const globalIdx = faqs
-                      .slice(0, catIdx)
-                      .reduce((sum, cat) => sum + cat.items.length, 0) + itemIdx;
+          <div className="space-y-4">
+            {currentItems.map((item, itemIdx) => {
+              const globalIdx = globalStartIndex + itemIdx;
 
-                    return (
-                      <button
-                        key={globalIdx}
-                        onClick={() => toggleItem(globalIdx)}
-                        className="w-full text-left"
-                      >
-                        <div className="card cursor-pointer hover:border-teal-500 transition-colors">
-                          <div className="flex justify-between items-start gap-4">
-                            <h3 className="text-lg font-semibold text-white flex-1 pr-4">
-                              {item.q}
-                            </h3>
-                            <span
-                              className={`text-2xl text-teal-400 flex-shrink-0 transition-transform ${
-                                openItems.includes(globalIdx)
-                                  ? "rotate-45"
-                                  : "rotate-0"
-                              }`}
-                            >
-                              +
-                            </span>
-                          </div>
-
-                          {openItems.includes(globalIdx) && (
-                            <div className="mt-4 pt-4 border-t border-slate-700 text-slate-300">
-                              {item.a}
-                            </div>
-                          )}
+              return (
+                <AnimatedSection key={globalIdx} delay={itemIdx * 0.05} animation="fadeInUp">
+                  <button
+                    onClick={() => toggleItem(globalIdx)}
+                    className="w-full text-left group"
+                  >
+                    <div className={`card cursor-pointer transition-all ${
+                      openItems.includes(globalIdx)
+                        ? 'border-teal-400 bg-slate-800/50'
+                        : 'hover:border-teal-500/50'
+                    }`}>
+                      <div className="flex justify-between items-start gap-4">
+                        <h3 className="text-base md:text-lg font-semibold text-white flex-1 pr-4 group-hover:text-teal-300 transition-colors">
+                          {item.q}
+                        </h3>
+                        <div className="flex-shrink-0 pt-1">
+                          <svg
+                            className={`w-5 h-5 text-teal-400 transition-transform duration-300 ${
+                              openItems.includes(globalIdx) ? 'rotate-180' : ''
+                            }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                            />
+                          </svg>
                         </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+                      </div>
+
+                      {openItems.includes(globalIdx) && (
+                        <div className="mt-4 pt-4 border-t border-slate-700 text-slate-300 text-sm md:text-base leading-relaxed animate-in fade-in duration-300">
+                          {item.a}
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Still Have Questions */}
       <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
-        <div className="section-container max-w-2xl mx-auto text-center">
-          <h2 className="text-white mb-6">Still Have Questions?</h2>
-          <p className="text-slate-300 mb-8">
-            We're here to help. Reach out via phone, email, or visit us in
-            person.
-          </p>
+        <div className="section-container max-w-3xl mx-auto">
+          <AnimatedSection>
+            <h2 className="text-white mb-6 text-center text-3xl">Still Have Questions?</h2>
+            <p className="text-slate-300 mb-10 text-center text-lg">
+              We're here to help. Reach out via phone, email, or visit us in person.
+            </p>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <a
-              href="tel:+14084782341"
-              className="card hover:border-teal-500 transition-colors"
-            >
-              <div className="text-3xl mb-3">📞</div>
-              <p className="text-white font-semibold mb-1">Call</p>
-              <p className="text-teal-400 text-sm">+1 (408) 478-2341</p>
-            </a>
+            <AnimatedSection delay={0.1}>
+              <a
+                href="tel:+14084782341"
+                className="card hover:border-teal-400 transition-all hover:shadow-lg hover:shadow-teal-500/10"
+              >
+                <div className="text-4xl mb-3">📞</div>
+                <p className="text-white font-semibold mb-1 text-lg">Call</p>
+                <p className="text-teal-400 text-sm font-mono">+1 (408) 478-2341</p>
+              </a>
+            </AnimatedSection>
 
-            <a
-              href="mailto:contact@offthecouchgames.com"
-              className="card hover:border-teal-500 transition-colors"
-            >
-              <div className="text-3xl mb-3">✉️</div>
-              <p className="text-white font-semibold mb-1">Email</p>
-              <p className="text-teal-400 text-sm break-all">
-                contact@offthecouchgames.com
-              </p>
-            </a>
+            <AnimatedSection delay={0.15}>
+              <a
+                href="mailto:contact@offthecouchgames.com"
+                className="card hover:border-teal-400 transition-all hover:shadow-lg hover:shadow-teal-500/10"
+              >
+                <div className="text-4xl mb-3">✉️</div>
+                <p className="text-white font-semibold mb-1 text-lg">Email</p>
+                <p className="text-teal-400 text-sm break-all">contact@offthecouchgames.com</p>
+              </a>
+            </AnimatedSection>
 
-            <Link
-              href="/contact"
-              className="card hover:border-teal-500 transition-colors"
-            >
-              <div className="text-3xl mb-3">📍</div>
-              <p className="text-white font-semibold mb-1">Visit</p>
-              <p className="text-teal-400 text-sm">Fremont, CA</p>
-            </Link>
+            <AnimatedSection delay={0.2}>
+              <Link
+                href="/contact"
+                className="card hover:border-teal-400 transition-all hover:shadow-lg hover:shadow-teal-500/10"
+              >
+                <div className="text-4xl mb-3">📍</div>
+                <p className="text-white font-semibold mb-1 text-lg">Visit</p>
+                <p className="text-teal-400 text-sm">Fremont, CA</p>
+              </Link>
+            </AnimatedSection>
           </div>
 
-          <a
-            href="https://offthecouch.io/book/otc"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary btn-lg"
-          >
-            Ready to Book?
-          </a>
+          <AnimatedSection>
+            <div className="text-center">
+              <a
+                href="https://offthecouch.io/book/otc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary btn-lg"
+              >
+                Ready to Book?
+              </a>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

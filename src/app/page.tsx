@@ -187,7 +187,7 @@ export default function Home() {
       <section className="min-h-[90vh] flex items-center relative overflow-hidden pt-28 pb-20">
         <FloatingIcons density="dense" />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+        <div className="relative z-10 section-container">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
             {/* Left: text (3 cols) */}
             <div className="lg:col-span-3">

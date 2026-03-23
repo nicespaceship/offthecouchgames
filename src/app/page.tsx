@@ -184,10 +184,10 @@ export default function Home() {
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="min-h-[85vh] flex items-center relative overflow-hidden pt-24 pb-16">
+      <section className="min-h-[90vh] flex items-center relative overflow-hidden pt-28 pb-20">
         <FloatingIcons density="dense" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
             {/* Left: text (3 cols) */}
             <div className="lg:col-span-3">
@@ -255,7 +255,7 @@ export default function Home() {
       <SectionDivider variant="wave" color="#111827" />
       <section className="section-padding bg-[#111827] relative">
         <div className="section-container">
-          <div className="mb-10">
+          <div className="mb-14">
             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
               The Asheville Chapters
             </h2>
@@ -316,7 +316,7 @@ export default function Home() {
       <SectionDivider variant="zigzag" color="#0a0f1a" />
       <section className="section-padding bg-[#0a0f1a] relative">
         <div className="section-container">
-          <div className="mb-10">
+          <div className="mb-14">
             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
               Why Off The Couch?
             </h2>
@@ -362,7 +362,7 @@ export default function Home() {
       <SectionDivider variant="torn" color="#111827" />
       <section className="section-padding bg-[#111827] relative">
         <div className="section-container">
-          <div className="mb-10">
+          <div className="mb-14">
             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
               What Players Say
             </h2>
@@ -403,7 +403,7 @@ export default function Home() {
       </section>
 
       {/* ═══ NEWSLETTER ═══ */}
-      <section className="bg-teal-600 py-16 px-4 relative" style={{ zIndex: 1 }}>
+      <section className="bg-teal-600 py-20 px-6 relative" style={{ zIndex: 1 }}>
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
             Stay in the Loop
@@ -436,7 +436,7 @@ export default function Home() {
       {/* ═══ CONTACT CTA ═══ */}
       <section className="section-padding bg-[#0a0f1a] relative">
         <div className="section-container max-w-4xl mx-auto">
-          <div className="mb-10">
+          <div className="mb-14">
             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
               Questions?
             </h2>

@@ -34,7 +34,7 @@ export default function ContactForm() {
       <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
 
       {submitted && (
-        <div className="mb-6 p-4 bg-teal-500/20 border border-teal-500/50 rounded-lg">
+        <div className="mb-6 p-4 bg-teal-900 border-2 border-teal-600 rounded-lg">
           <p className="text-teal-300 font-semibold text-sm">
             Thank you! We&apos;ve received your message and will respond within 24 hours.
           </p>

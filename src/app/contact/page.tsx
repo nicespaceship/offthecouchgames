@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
+import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Contact | Off The Couch - Escape Rooms",
@@ -103,22 +104,24 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-14 md:py-20 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-14 md:py-20 bg-[#0a0f1a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <h1 className="text-white mb-6 text-4xl md:text-5xl">Get in Touch</h1>
-            <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-300 max-w-2xl">
               Have questions? Need a group booking? Want to discuss a corporate event? We're here to help and excited to welcome you.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#0a0f1a" />
+
       {/* Contact Methods */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0f1a]">
         <div className="section-container max-w-5xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-white mb-8 text-center text-3xl">Contact Methods</h2>
+            <h2 className="text-white mb-8 text-3xl">Contact Methods</h2>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -126,9 +129,9 @@ export default function ContactPage() {
               <AnimatedSection key={idx} delay={idx * 0.1} animation="fadeInUp">
                 <a
                   href={method.href}
-                  className="card h-full hover:border-teal-400 transition-all hover:shadow-lg hover:shadow-teal-500/10 group"
+                  className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 block h-full hover:border-teal-400 hover:-translate-y-1 transition-all group"
                 >
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{method.icon}</div>
+                  <div className="text-4xl mb-4">{method.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">
                     {method.title}
                   </h3>
@@ -143,12 +146,12 @@ export default function ContactPage() {
 
           {/* Map Placeholder */}
           <AnimatedSection animation="scaleIn">
-            <div className="card h-80 md:h-96 flex items-center justify-center overflow-hidden hover:border-teal-400 transition-colors">
-              <div className="w-full h-full bg-gradient-to-br from-teal-900/20 via-slate-800/50 to-slate-900 flex items-center justify-center relative">
+            <div className="bg-[#111827] border-2 border-slate-700 rounded-lg h-80 md:h-96 flex items-center justify-center overflow-hidden hover:border-teal-400 transition-colors">
+              <div className="w-full h-full bg-[#111827] flex items-center justify-center relative">
                 <div className="absolute inset-0 opacity-20">
                   <svg className="w-full h-full" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="200" cy="150" r="80" stroke="currentColor" strokeWidth="1" className="text-teal-500" />
-                    <path d="M200 70 L230 150 Q200 190 170 150 Z" fill="currentColor" className="text-teal-500/30" />
+                    <path d="M200 70 L230 150 Q200 190 170 150 Z" fill="currentColor" className="text-teal-600" />
                   </svg>
                 </div>
                 <div className="text-center z-10 relative">
@@ -164,12 +167,14 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#111827" />
+
       {/* Hours & Business Info */}
-      <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
+      <section className="section-padding bg-[#111827]">
         <div className="section-container max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatedSection delay={0.1}>
-              <div className="card h-full">
+              <div className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 h-full">
                 <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                   <svg className="w-6 h-6 text-teal-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
@@ -199,7 +204,7 @@ export default function ContactPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="card h-full">
+              <div className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 h-full">
                 <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                   <svg className="w-6 h-6 text-teal-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-2.08-2.54-1.41 1.15 3.49 4.23L13.6 8.96z" />
@@ -241,11 +246,13 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#0a0f1a" />
+
       {/* Inquiry Types */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0f1a]">
         <div className="section-container">
           <AnimatedSection>
-            <h2 className="text-white mb-8 text-center text-3xl">How Can We Help?</h2>
+            <h2 className="text-white mb-8 text-3xl">How Can We Help?</h2>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -255,9 +262,9 @@ export default function ContactPage() {
                   href={inquiry.href}
                   target={inquiry.href.startsWith("http") ? "_blank" : undefined}
                   rel={inquiry.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="card h-full hover:border-teal-400 transition-all hover:shadow-lg hover:shadow-teal-500/10 group"
+                  className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 block h-full hover:border-teal-400 hover:-translate-y-1 transition-all group"
                 >
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">
+                  <div className="text-4xl mb-4">
                     {inquiry.icon}
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">
@@ -279,8 +286,10 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#111827" />
+
       {/* Contact Form & Process */}
-      <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
+      <section className="section-padding bg-[#111827]">
         <div className="section-container max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* Form */}
@@ -297,8 +306,8 @@ export default function ContactPage() {
                   {steps.map((step, idx) => (
                     <div key={idx} className="flex gap-4">
                       <div className="flex-shrink-0">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-teal-500/20 border border-teal-500/50">
-                          <span className="text-teal-400 font-bold">{step.number}</span>
+                        <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-teal-600 border border-teal-500">
+                          <span className="text-white font-bold">{step.number}</span>
                         </div>
                       </div>
                       <div className="flex-grow">
@@ -309,9 +318,9 @@ export default function ContactPage() {
                   ))}
                 </div>
 
-                <div className="mt-8 p-6 bg-teal-500/10 border border-teal-500/30 rounded-lg">
+                <div className="mt-8 p-6 bg-[#0a0f1a] border-2 border-teal-400 rounded-lg">
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    <span className="text-teal-300 font-semibold block mb-2">Pro Tip:</span>
+                    <span className="text-teal-400 font-semibold block mb-2">Pro Tip:</span>
                     Book online for instant availability or call us during business hours to discuss your group's specific needs.
                   </p>
                 </div>
@@ -321,8 +330,10 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#0a0f1a" />
+
       {/* Final CTA */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0f1a]">
         <div className="section-container max-w-2xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-white mb-6 text-3xl">Ready to Begin?</h2>

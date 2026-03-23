@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function FAQPage() {
   const [openItems, setOpenItems] = useState<number[]>([]);
@@ -179,29 +180,31 @@ export default function FAQPage() {
       </head>
 
       {/* Hero */}
-      <section className="py-14 md:py-20 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-14 md:py-20 bg-[#0a0f1a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <h1 className="text-white mb-6 text-4xl md:text-5xl">Frequently Asked Questions</h1>
-            <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-300 max-w-2xl">
               Can't find the answer you're looking for? Reach out to us directly.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#111827" />
+
       {/* Category Pills */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding bg-[#111827]">
         <div className="section-container">
           <AnimatedSection>
-            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+            <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                     selectedCategory === cat
-                      ? 'bg-teal-500 text-white shadow-lg shadow-teal-500/30'
+                      ? 'bg-teal-600 text-white'
                       : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white'
                   }`}
                 >
@@ -213,12 +216,14 @@ export default function FAQPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#0a0f1a" />
+
       {/* FAQs */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0f1a]">
         <div className="section-container max-w-3xl mx-auto">
           <AnimatedSection>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-3">
-              <span className="w-1 h-8 bg-teal-500 rounded" />
+              <span className="w-1 h-8 bg-teal-400 rounded" />
               {selectedCategory}
             </h2>
           </AnimatedSection>
@@ -233,10 +238,10 @@ export default function FAQPage() {
                     onClick={() => toggleItem(globalIdx)}
                     className="w-full text-left group"
                   >
-                    <div className={`card cursor-pointer transition-all ${
+                    <div className={`bg-[#111827] border-2 rounded-lg p-6 cursor-pointer transition-all ${
                       openItems.includes(globalIdx)
-                        ? 'border-teal-400 bg-slate-800/50'
-                        : 'hover:border-teal-500/50'
+                        ? 'border-teal-400'
+                        : 'border-slate-700 hover:border-teal-400'
                     }`}>
                       <div className="flex justify-between items-start gap-4">
                         <h3 className="text-base md:text-lg font-semibold text-white flex-1 pr-4 group-hover:text-teal-300 transition-colors">
@@ -275,12 +280,14 @@ export default function FAQPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#111827" />
+
       {/* Still Have Questions */}
-      <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
+      <section className="section-padding bg-[#111827]">
         <div className="section-container max-w-3xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-white mb-6 text-center text-3xl">Still Have Questions?</h2>
-            <p className="text-slate-300 mb-10 text-center text-lg">
+            <h2 className="text-white mb-6 text-3xl">Still Have Questions?</h2>
+            <p className="text-slate-300 mb-10 text-lg">
               We're here to help. Reach out via phone, email, or visit us in person.
             </p>
           </AnimatedSection>
@@ -289,7 +296,7 @@ export default function FAQPage() {
             <AnimatedSection delay={0.1}>
               <a
                 href="tel:+14084782341"
-                className="card hover:border-teal-400 transition-all hover:shadow-lg hover:shadow-teal-500/10"
+                className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 block hover:border-teal-400 hover:-translate-y-1 transition-all"
               >
                 <div className="text-4xl mb-3">📞</div>
                 <p className="text-white font-semibold mb-1 text-lg">Call</p>
@@ -300,7 +307,7 @@ export default function FAQPage() {
             <AnimatedSection delay={0.15}>
               <a
                 href="mailto:contact@offthecouchgames.com"
-                className="card hover:border-teal-400 transition-all hover:shadow-lg hover:shadow-teal-500/10"
+                className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 block hover:border-teal-400 hover:-translate-y-1 transition-all"
               >
                 <div className="text-4xl mb-3">✉️</div>
                 <p className="text-white font-semibold mb-1 text-lg">Email</p>
@@ -311,7 +318,7 @@ export default function FAQPage() {
             <AnimatedSection delay={0.2}>
               <Link
                 href="/contact"
-                className="card hover:border-teal-400 transition-all hover:shadow-lg hover:shadow-teal-500/10"
+                className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 block hover:border-teal-400 hover:-translate-y-1 transition-all"
               >
                 <div className="text-4xl mb-3">📍</div>
                 <p className="text-white font-semibold mb-1 text-lg">Visit</p>

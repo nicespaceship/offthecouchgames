@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
+import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
   title: "About | Off The Couch - Escape Rooms",
@@ -73,7 +74,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero with Story */}
-      <section className="py-14 md:py-20 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
+      <section className="py-14 md:py-20 bg-[#0a0f1a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
@@ -88,7 +89,7 @@ export default function AboutPage() {
               </div>
             </AnimatedSection>
             <AnimatedSection delay={0.2} animation="scaleIn">
-              <div className="card h-full flex items-center justify-center min-h-[300px] bg-gradient-to-br from-teal-500/10 via-slate-800/50 to-slate-900">
+              <div className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 h-full flex items-center justify-center min-h-[300px]">
                 <div className="text-center">
                   <div className="text-8xl mb-4">🔍</div>
                   <p className="text-slate-400 text-sm">The investigation begins here</p>
@@ -99,14 +100,16 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#111827" />
+
       {/* Stats Highlight */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding bg-[#111827]">
         <div className="section-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {stats.map((stat, idx) => (
               <AnimatedSection key={idx} delay={idx * 0.1} animation="fadeInUp">
-                <div className="card text-center hover:border-teal-400 transition-colors group">
-                  <div className="text-5xl md:text-6xl font-bold text-teal-400 mb-2 group-hover:scale-110 transition-transform">
+                <div className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 text-center hover:border-teal-400 transition-colors">
+                  <div className="text-5xl md:text-6xl font-bold text-teal-400 mb-2">
                     {stat.number}
                   </div>
                   <p className="text-slate-400 text-sm md:text-base">{stat.label}</p>
@@ -117,11 +120,13 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#0a0f1a" />
+
       {/* Timeline Journey */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0f1a]">
         <div className="section-container max-w-4xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-white mb-8 text-center text-3xl">The Journey</h2>
+            <h2 className="text-white mb-8 text-3xl">The Journey</h2>
           </AnimatedSection>
 
           <div className="space-y-10 md:space-y-14">
@@ -137,7 +142,7 @@ export default function AboutPage() {
                       {milestone.description}
                     </p>
                   </div>
-                  <div className="card h-full flex items-center justify-center min-h-[250px] md:min-h-[300px] bg-gradient-to-br from-slate-700/30 to-slate-800/30 hover:border-teal-400 transition-colors">
+                  <div className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 h-full flex items-center justify-center min-h-[250px] md:min-h-[300px] hover:border-teal-400 hover:-translate-y-1 transition-all">
                     <div className="text-6xl md:text-8xl">{milestone.icon}</div>
                   </div>
                 </div>
@@ -147,23 +152,25 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#111827" />
+
       {/* Founders */}
-      <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
+      <section className="section-padding bg-[#111827]">
         <div className="section-container max-w-5xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-white mb-8 text-center text-3xl">Meet the Founders</h2>
+            <h2 className="text-white mb-8 text-3xl">Meet the Founders</h2>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatedSection delay={0.1} animation="fadeInLeft">
-              <div className="card h-full hover:border-teal-400 transition-colors">
+              <div className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 h-full hover:border-teal-400 hover:-translate-y-1 transition-all">
                 <div className="text-center mb-6">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-teal-500/20 to-slate-700/20 rounded-full flex items-center justify-center mb-4">
+                  <div className="w-24 h-24 mx-auto bg-slate-800 border-2 border-slate-600 rounded-full flex items-center justify-center mb-4">
                     <div className="text-5xl">👩‍💼</div>
                   </div>
                   <h3 className="text-2xl font-bold text-white">Jana Schilbe</h3>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-4 mb-6 border border-slate-700">
+                <div className="bg-slate-800 rounded-lg p-4 mb-6 border border-slate-700">
                   <p className="text-sm mb-3">
                     <span className="text-slate-300 font-bold block">Background</span>
                     <span className="text-slate-400">Cybersecurity Professional</span>
@@ -180,14 +187,14 @@ export default function AboutPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} animation="fadeInRight">
-              <div className="card h-full hover:border-teal-400 transition-colors">
+              <div className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 h-full hover:border-teal-400 hover:-translate-y-1 transition-all">
                 <div className="text-center mb-6">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-teal-500/20 to-slate-700/20 rounded-full flex items-center justify-center mb-4">
+                  <div className="w-24 h-24 mx-auto bg-slate-800 border-2 border-slate-600 rounded-full flex items-center justify-center mb-4">
                     <div className="text-5xl">👨‍💻</div>
                   </div>
                   <h3 className="text-2xl font-bold text-white">Nick Schilbe</h3>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-4 mb-6 border border-slate-700">
+                <div className="bg-slate-800 rounded-lg p-4 mb-6 border border-slate-700">
                   <p className="text-sm mb-3">
                     <span className="text-slate-300 font-bold block">Background</span>
                     <span className="text-slate-400">Cybersecurity Professional, Tech Entrepreneur</span>
@@ -206,17 +213,19 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#0a0f1a" />
+
       {/* Values Grid */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0f1a]">
         <div className="section-container">
           <AnimatedSection>
-            <h2 className="text-white mb-8 text-center text-3xl">Our Values</h2>
+            <h2 className="text-white mb-8 text-3xl">Our Values</h2>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((value, idx) => (
               <AnimatedSection key={idx} delay={idx * 0.1} animation="fadeInUp">
-                <div className="card h-full hover:border-teal-400 transition-all hover:shadow-lg hover:shadow-teal-500/10">
+                <div className="bg-[#111827] border-2 border-slate-700 rounded-lg p-6 h-full hover:border-teal-400 hover:-translate-y-1 transition-all">
                   <div className="text-4xl mb-4">{value.icon}</div>
                   <h3 className="text-lg font-bold text-white mb-3">{value.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">{value.description}</p>
@@ -227,11 +236,13 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#111827" />
+
       {/* Philosophy Section */}
-      <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
+      <section className="section-padding bg-[#111827]">
         <div className="section-container max-w-3xl mx-auto">
           <AnimatedSection>
-            <div className="card border-2 border-teal-500/30 bg-teal-500/5">
+            <div className="bg-[#111827] border-2 border-teal-400 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-white mb-6">Our Philosophy</h2>
               <p className="text-slate-300 mb-6 text-lg leading-relaxed">
                 We believe escape rooms should feel like stepping into another world. Not a game with artificial time pressure, but an immersive narrative where you're the protagonist. Every puzzle serves the story. Every moment matters. Every choice echoes through the experience.
@@ -244,8 +255,10 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#0a0f1a" />
+
       {/* CTA */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0f1a]">
         <div className="section-container max-w-2xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-white mb-6 text-3xl">Experience Our Vision</h2>

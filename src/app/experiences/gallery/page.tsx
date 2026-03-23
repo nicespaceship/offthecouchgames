@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
+import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Norcross Art Gallery | Off The Couch - Escape Rooms",
@@ -11,19 +12,17 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <>
-      {/* Hero with Image Placeholder */}
-      <section className="relative min-h-[500px] bg-gradient-to-b from-amber-600 via-amber-900 to-slate-950 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-amber-600/80 to-slate-900/80" />
-
-        <div className="relative h-full flex flex-col">
+      {/* Hero */}
+      <section className="relative min-h-[500px] bg-[#0a0f1a] overflow-hidden">
+        <div className="h-full flex flex-col">
           {/* Top content */}
           <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col justify-center w-full">
             <AnimatedSection className="max-w-3xl">
-              <span className="inline-block text-sm font-semibold text-amber-300 uppercase tracking-wider mb-4">
+              <span className="inline-block text-sm font-semibold text-amber-400 uppercase tracking-wider mb-4">
                 Chapter 2 of 12
               </span>
               <h1 className="text-white mb-6 text-5xl">Norcross Art Gallery</h1>
-              <p className="text-xl text-slate-200 mb-8 max-w-2xl">
+              <p className="text-xl text-slate-300 mb-8 max-w-2xl">
                 The clues from Occam's Apartment lead you to an exclusive art
                 gallery. You've determined that the Norcross Art Gallery is where
                 your suspect is likely operating from. The investigation deepens
@@ -47,9 +46,9 @@ export default function GalleryPage() {
           </div>
 
           {/* Image placeholder at bottom */}
-          <AnimatedSection delay={0.2} animation="fadeInUp" className="relative w-full h-64 bg-gradient-to-b from-amber-900/40 to-amber-950">
+          <AnimatedSection delay={0.2} animation="fadeInUp" className="relative w-full h-64 bg-[#111827]">
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <svg className="w-16 h-16 text-amber-300/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-16 h-16 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               <span className="text-slate-400">Photo Coming Soon</span>
@@ -58,16 +57,16 @@ export default function GalleryPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#0a0f1a" />
+
       {/* Details Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0f1a]">
         <div className="section-container">
-          {/* On mobile: sidebar first, then content. On desktop: content left, sidebar right */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Sidebar - moves above content on mobile */}
+            {/* Sidebar */}
             <div className="lg:col-span-1 order-first lg:order-last">
               <AnimatedSection delay={0.1} animation="fadeInRight">
-                {/* Sticky booking card with glass effect */}
-                <div className="sticky top-24 bg-slate-800/50 backdrop-blur-sm border border-amber-500/30 rounded-xl p-6 space-y-6 shadow-lg shadow-amber-900/20">
+                <div className="sticky top-24 bg-[#111827] border-2 border-slate-700 rounded-xl p-6 space-y-6">
                   <div className="border-b border-slate-700 pb-4">
                     <h3 className="text-lg font-bold text-white mb-4">
                       Experience Details
@@ -151,7 +150,7 @@ export default function GalleryPage() {
 
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-amber-300 font-semibold mb-3 text-lg flex items-center gap-2">
+                    <h3 className="text-amber-400 font-semibold mb-3 text-lg flex items-center gap-2">
                       <span className="w-1 h-6 bg-amber-500" />
                       The Story
                     </h3>
@@ -166,7 +165,7 @@ export default function GalleryPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-amber-300 font-semibold mb-3 text-lg flex items-center gap-2">
+                    <h3 className="text-amber-400 font-semibold mb-3 text-lg flex items-center gap-2">
                       <span className="w-1 h-6 bg-amber-500" />
                       What You'll Do
                     </h3>
@@ -180,7 +179,7 @@ export default function GalleryPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-amber-300 font-semibold mb-3 text-lg flex items-center gap-2">
+                    <h3 className="text-amber-400 font-semibold mb-3 text-lg flex items-center gap-2">
                       <span className="w-1 h-6 bg-amber-500" />
                       The Setting
                     </h3>
@@ -197,7 +196,7 @@ export default function GalleryPage() {
               <AnimatedSection delay={0.15}>
                 <h2 className="text-white mb-8 text-3xl">Key Features</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="card border-l-4 border-amber-500/50">
+                  <div className="bg-[#111827] border-2 border-slate-700 rounded-xl p-6 border-l-4 border-l-amber-500">
                     <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
                       <span className="text-amber-400">📚</span>
                       Builds on Chapter 1
@@ -207,7 +206,7 @@ export default function GalleryPage() {
                       Occam's Apartment matters here.
                     </p>
                   </div>
-                  <div className="card border-l-4 border-amber-500/50">
+                  <div className="bg-[#111827] border-2 border-slate-700 rounded-xl p-6 border-l-4 border-l-amber-500">
                     <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
                       <span className="text-amber-400">🏛️</span>
                       Expanded Environment
@@ -217,7 +216,7 @@ export default function GalleryPage() {
                       opportunities for discovery.
                     </p>
                   </div>
-                  <div className="card border-l-4 border-amber-500/50">
+                  <div className="bg-[#111827] border-2 border-slate-700 rounded-xl p-6 border-l-4 border-l-amber-500">
                     <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
                       <span className="text-amber-400">🤝</span>
                       Collaborative Puzzles
@@ -227,7 +226,7 @@ export default function GalleryPage() {
                       communication skills matter.
                     </p>
                   </div>
-                  <div className="card border-l-4 border-amber-500/50">
+                  <div className="bg-[#111827] border-2 border-slate-700 rounded-xl p-6 border-l-4 border-l-amber-500">
                     <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
                       <span className="text-amber-400">📖</span>
                       Narrative Callbacks
@@ -244,10 +243,12 @@ export default function GalleryPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#111827" />
+
       {/* Chapter Navigation */}
-      <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
+      <section className="section-padding bg-[#111827]">
         <div className="section-container">
-          <AnimatedSection className="text-center mb-8">
+          <AnimatedSection className="mb-8">
             <h2 className="text-white mb-4">The Asheville Chapters</h2>
             <p className="text-slate-400">Navigate through the complete mystery</p>
           </AnimatedSection>
@@ -255,7 +256,7 @@ export default function GalleryPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <AnimatedSection delay={0.1} animation="fadeInUp">
               <Link href="/experiences/apartment" className="group">
-                <div className="card h-full border-l-4 border-purple-500/50 hover:border-purple-400 transition-all hover:shadow-lg hover:shadow-purple-900/20">
+                <div className="bg-[#111827] border-2 border-slate-700 rounded-xl p-6 h-full border-l-4 border-l-purple-500 hover:border-teal-400 hover:-translate-y-1 transition-all">
                   <span className="inline-block text-xs font-semibold text-purple-400 uppercase tracking-wider mb-4">
                     Chapter 1
                   </span>
@@ -274,7 +275,7 @@ export default function GalleryPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} animation="fadeInUp">
-              <div className="card h-full border-l-4 border-amber-500 opacity-90">
+              <div className="bg-[#111827] border-2 border-amber-500 rounded-xl p-6 h-full border-l-4 border-l-amber-500 opacity-90">
                 <span className="inline-block text-xs font-semibold text-amber-400 uppercase tracking-wider mb-4">
                   Chapter 2
                 </span>
@@ -293,7 +294,7 @@ export default function GalleryPage() {
 
             <AnimatedSection delay={0.3} animation="fadeInUp">
               <Link href="/experiences/morgue" className="group">
-                <div className="card h-full border-l-4 border-emerald-500/50 hover:border-emerald-400 transition-all hover:shadow-lg hover:shadow-emerald-900/20">
+                <div className="bg-[#111827] border-2 border-slate-700 rounded-xl p-6 h-full border-l-4 border-l-emerald-500 hover:border-teal-400 hover:-translate-y-1 transition-all">
                   <span className="inline-block text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-4">
                     Chapter 3
                   </span>
@@ -314,8 +315,10 @@ export default function GalleryPage() {
         </div>
       </section>
 
+      <SectionDivider variant="wave" color="#0a0f1a" />
+
       {/* CTA */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0f1a]">
         <div className="section-container max-w-2xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-white mb-6">Continue Your Investigation</h2>

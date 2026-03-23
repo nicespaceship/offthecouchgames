@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingIcons from "@/components/FloatingIcons";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,9 +40,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col relative">
+        <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+          <FloatingIcons density="sparse" />
+        </div>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 relative" style={{ zIndex: 1 }}>{children}</main>
         <Footer />
       </body>
     </html>

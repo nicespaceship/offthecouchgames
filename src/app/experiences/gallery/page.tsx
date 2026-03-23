@@ -146,7 +146,7 @@ export default function GalleryPage() {
 
             {/* Main content */}
             <div className="lg:col-span-2 order-last lg:order-first">
-              <AnimatedSection className="mb-12">
+              <AnimatedSection className="mb-8">
                 <h2 className="text-white mb-8 text-3xl">Experience Overview</h2>
 
                 <div className="space-y-8">
@@ -247,7 +247,7 @@ export default function GalleryPage() {
       {/* Chapter Navigation */}
       <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="section-container">
-          <AnimatedSection className="text-center mb-12">
+          <AnimatedSection className="text-center mb-8">
             <h2 className="text-white mb-4">The Asheville Chapters</h2>
             <p className="text-slate-400">Navigate through the complete mystery</p>
           </AnimatedSection>

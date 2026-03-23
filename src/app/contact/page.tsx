@@ -103,7 +103,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
+      <section className="py-14 md:py-20 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h1 className="text-white mb-6 text-4xl md:text-5xl">Get in Touch</h1>
@@ -118,10 +118,10 @@ export default function ContactPage() {
       <section className="section-padding">
         <div className="section-container max-w-5xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-white mb-10 text-center text-3xl">Contact Methods</h2>
+            <h2 className="text-white mb-8 text-center text-3xl">Contact Methods</h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {contactMethods.map((method, idx) => (
               <AnimatedSection key={idx} delay={idx * 0.1} animation="fadeInUp">
                 <a
@@ -245,7 +245,7 @@ export default function ContactPage() {
       <section className="section-padding">
         <div className="section-container">
           <AnimatedSection>
-            <h2 className="text-white mb-12 text-center text-3xl">How Can We Help?</h2>
+            <h2 className="text-white mb-8 text-center text-3xl">How Can We Help?</h2>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -326,7 +326,7 @@ export default function ContactPage() {
         <div className="section-container max-w-2xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-white mb-6 text-3xl">Ready to Begin?</h2>
-            <p className="text-slate-300 mb-10 text-lg">
+            <p className="text-slate-300 mb-8 text-lg">
               Whether you're booking your first session or planning a corporate event, we're excited to welcome you to the Asheville mystery.
             </p>
 

@@ -1,0 +1,3 @@
+module.exports=[54219,a=>{"use strict";var b=a.i(9272),c=a.i(6555);a.s(["default",0,function({children:a,className:d="",delay:e=0,animation:f="fadeInUp"}){let g=(0,c.useRef)(null),[h,i]=(0,c.useState)(!1);(0,c.useEffect)(()=>{let a=new IntersectionObserver(b=>{b.forEach(b=>{b.isIntersecting&&!h&&(i(!0),a.unobserve(b.target))})},{threshold:.1,rootMargin:"0px 0px -50px 0px"});return g.current&&a.observe(g.current),()=>{g.current&&a.unobserve(g.current)}},[h]);let j=e>0?`delay-${Math.min(Math.round(100*e),500)}`:"";return(0,b.jsx)("div",{ref:g,className:`animate-on-scroll ${f} ${h?"is-visible":""} ${j} ${d}`,children:a})}])}];
+
+//# sourceMappingURL=09j6_Off%20The%20Couch_off-the-couch-staging_src_components_AnimatedSection_tsx_0swg8tt._.js.map

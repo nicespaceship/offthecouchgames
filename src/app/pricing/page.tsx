@@ -81,7 +81,7 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
+      <section className="py-14 md:py-20 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h1 className="text-white mb-6 text-4xl md:text-5xl">Transparent Pricing</h1>
@@ -98,10 +98,10 @@ export default function PricingPage() {
       <section className="section-padding">
         <div className="section-container max-w-5xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-white mb-12 text-center text-3xl">How It Works</h2>
+            <h2 className="text-white mb-8 text-center text-3xl">How It Works</h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <AnimatedSection delay={0.1} animation="fadeInUp">
               <div className="card relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg blur opacity-0 group-hover:opacity-100 transition-all duration-500" />
@@ -161,11 +161,11 @@ export default function PricingPage() {
         <div className="section-container">
           <AnimatedSection>
             <h2 className="text-white mb-4 text-center text-3xl">Group Pricing</h2>
-            <p className="text-slate-400 text-center mb-10 max-w-2xl mx-auto">Select your group size below to see pricing for all chapters</p>
+            <p className="text-slate-400 text-center mb-8 max-w-2xl mx-auto">Select your group size below to see pricing for all chapters</p>
           </AnimatedSection>
 
           {/* Mobile: Pricing Cards */}
-          <div className="md:hidden mb-10">
+          <div className="md:hidden mb-8">
             <div className="grid grid-cols-1 gap-4">
               {pricingTiers.map((tier, idx) => (
                 <AnimatedSection key={tier.players} delay={idx * 0.1}>
@@ -265,7 +265,7 @@ export default function PricingPage() {
       <section className="section-padding">
         <div className="section-container">
           <AnimatedSection>
-            <h2 className="text-white mb-12 text-center text-3xl">Chapter Breakdown</h2>
+            <h2 className="text-white mb-8 text-center text-3xl">Chapter Breakdown</h2>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -305,7 +305,7 @@ export default function PricingPage() {
       <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="section-container max-w-3xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-white mb-10 text-center text-3xl">Pricing FAQs</h2>
+            <h2 className="text-white mb-8 text-center text-3xl">Pricing FAQs</h2>
           </AnimatedSection>
 
           <div className="space-y-4">

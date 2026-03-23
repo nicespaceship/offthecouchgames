@@ -31,7 +31,7 @@ export default function Footer() {
         })}
       </script>
 
-      <footer id="top" className="bg-gradient-to-b from-slate-900 to-slate-950 border-t border-slate-700 mt-20">
+      <footer id="top" className="bg-gradient-to-b from-slate-900 to-slate-950 border-t border-slate-700 mt-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Brand Section - Full Width on Mobile */}
           <div className="mb-8 md:mb-12">

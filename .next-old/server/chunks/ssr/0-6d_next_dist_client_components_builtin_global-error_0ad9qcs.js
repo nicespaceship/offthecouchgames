@@ -1,0 +1,3 @@
+module.exports=[47470,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(61817);a.n(d("[project]/mnt/Off The Couch/off-the-couch-staging/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},20672,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(61817);a.n(d("[project]/mnt/Off The Couch/off-the-couch-staging/node_modules/next/dist/client/components/builtin/global-error.js"))},32098,a=>{"use strict";a.i(47470);var b=a.i(20672);a.n(b)},99951,a=>{a.n(a.i(32098))}];
+
+//# sourceMappingURL=0-6d_next_dist_client_components_builtin_global-error_0ad9qcs.js.map

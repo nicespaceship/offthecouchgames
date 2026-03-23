@@ -156,7 +156,7 @@ export default function MorguePage() {
 
             {/* Main content */}
             <div className="lg:col-span-2 order-last lg:order-first">
-              <AnimatedSection className="mb-12">
+              <AnimatedSection className="mb-8">
                 <h2 className="text-white mb-8 text-3xl">Experience Overview</h2>
 
                 <div className="space-y-8">
@@ -258,12 +258,12 @@ export default function MorguePage() {
       {/* Complete Journey */}
       <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="section-container">
-          <AnimatedSection className="text-center mb-12">
+          <AnimatedSection className="text-center mb-8">
             <h2 className="text-white mb-4">The Complete Asheville Journey</h2>
             <p className="text-slate-400">All three chapters available now</p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <AnimatedSection delay={0.1} animation="fadeInUp">
               <Link href="/experiences/apartment" className="group">
                 <div className="card h-full border-l-4 border-purple-500/50 hover:border-purple-400 transition-all hover:shadow-lg hover:shadow-purple-900/20">

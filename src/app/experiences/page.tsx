@@ -93,7 +93,7 @@ export default function ExperiencesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
+      <section className="relative py-14 md:py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
         {/* Background gradient accent */}
         <div className="absolute inset-0 bg-gradient-to-r from-teal-900/20 to-purple-900/20 opacity-50" />
 
@@ -112,7 +112,7 @@ export default function ExperiencesPage() {
       {/* Timeline Header */}
       <section className="section-padding bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="section-container max-w-4xl mx-auto">
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center mb-8">
             <h2 className="text-white mb-4">Your Investigation Path</h2>
             <p className="text-slate-400 text-lg">
               Progress through three interconnected chapters, each building on the last
@@ -120,7 +120,7 @@ export default function ExperiencesPage() {
           </AnimatedSection>
 
           {/* Timeline visualization */}
-          <div className="hidden md:flex items-center justify-between mb-16">
+          <div className="hidden md:flex items-center justify-between mb-8">
             {chapters.map((chapter, idx) => (
               <div key={chapter.id} className="flex-1">
                 <AnimatedSection delay={idx * 0.15} className="flex flex-col items-center">
@@ -246,7 +246,7 @@ export default function ExperiencesPage() {
       {/* About Asheville */}
       <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="section-container max-w-3xl mx-auto">
-          <AnimatedSection className="text-center mb-12">
+          <AnimatedSection className="text-center mb-8">
             <h2 className="text-white mb-4">About The Asheville Mystery</h2>
             <p className="text-slate-400">
               An innovative approach to immersive storytelling and investigation

@@ -179,7 +179,7 @@ export default function FAQPage() {
       </head>
 
       {/* Hero */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
+      <section className="py-14 md:py-20 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h1 className="text-white mb-6 text-4xl md:text-5xl">Frequently Asked Questions</h1>

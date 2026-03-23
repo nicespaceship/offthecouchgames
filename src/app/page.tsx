@@ -151,7 +151,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[95vh] flex items-center justify-center relative overflow-hidden pt-28 pb-20">
+      <section className="min-h-[80vh] flex items-center justify-center relative overflow-hidden pt-24 pb-12">
         {/* Layered Background Gradients */}
         <div className="absolute inset-0 bg-gradient-to-b from-teal-950/40 via-slate-950 to-black pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-teal-900/10 via-transparent to-cyan-900/10 pointer-events-none" />
@@ -197,7 +197,7 @@ export default function Home() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
               href="https://offthecouch.io/book/otc"
               target="_blank"
@@ -212,7 +212,7 @@ export default function Home() {
           </div>
 
           {/* Hero Stats - Frosted Glass Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-20 pt-12 border-t border-slate-700/50">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-10 pt-8 border-t border-slate-700/50">
             <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all">
               <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">3</div>
               <p className="text-slate-400 text-sm mt-2 font-medium">Chapters</p>
@@ -232,7 +232,7 @@ export default function Home() {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="mt-16 flex justify-center text-teal-400/60">
+          <div className="mt-8 flex justify-center text-teal-400/60">
             <ScrollIndicator />
           </div>
         </div>
@@ -241,7 +241,7 @@ export default function Home() {
       {/* Experiences Grid */}
       <section className="section-padding bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="section-container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
               The Asheville Chapters
             </h2>
@@ -330,7 +330,7 @@ export default function Home() {
       {/* Why Off The Couch */}
       <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="section-container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
               Why Off The Couch?
             </h2>
@@ -367,7 +367,7 @@ export default function Home() {
       {/* Reviews Section */}
       <section className="section-padding bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="section-container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
               What Players Say
             </h2>

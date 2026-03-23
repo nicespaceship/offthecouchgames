@@ -73,7 +73,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero with Story */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
+      <section className="py-14 md:py-20 bg-gradient-to-b from-teal-900/20 via-slate-900 to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
@@ -121,10 +121,10 @@ export default function AboutPage() {
       <section className="section-padding">
         <div className="section-container max-w-4xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-white mb-14 text-center text-3xl">The Journey</h2>
+            <h2 className="text-white mb-8 text-center text-3xl">The Journey</h2>
           </AnimatedSection>
 
-          <div className="space-y-12 md:space-y-20">
+          <div className="space-y-10 md:space-y-14">
             {milestones.map((milestone, idx) => (
               <AnimatedSection key={idx} delay={idx * 0.2} animation="fadeInUp">
                 <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${idx % 2 === 1 ? 'md:grid-cols-2 md:[direction:rtl]' : ''}`}>
@@ -151,7 +151,7 @@ export default function AboutPage() {
       <section className="section-padding bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="section-container max-w-5xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-white mb-12 text-center text-3xl">Meet the Founders</h2>
+            <h2 className="text-white mb-8 text-center text-3xl">Meet the Founders</h2>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -210,7 +210,7 @@ export default function AboutPage() {
       <section className="section-padding">
         <div className="section-container">
           <AnimatedSection>
-            <h2 className="text-white mb-12 text-center text-3xl">Our Values</h2>
+            <h2 className="text-white mb-8 text-center text-3xl">Our Values</h2>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
